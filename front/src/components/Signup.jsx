@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import signup from "../images/signup.png";
 import "./Signup.css";
+import { backndurl } from '../App';
 
 
 const Signup=()=>{
@@ -26,7 +27,7 @@ const Signup=()=>{
  const PostData= async (e) => {
   e.preventDefault();
   const { name, email, phone, designation, password, cpassword } = user;
-   const res= await fetch("/register", {
+   const res= await fetch( backndurl+"/register", {
     method: "POST",
     headers:{
       "Content-Type": "application/json"

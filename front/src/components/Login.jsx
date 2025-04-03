@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import loginpic from "../images/loginpic.png";
 import "./Login.css";
+import { backndurl } from "../App";
 
 const Login = () => {
   const navigation = useNavigate();
@@ -11,7 +12,7 @@ const Login = () => {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("/signin", {
+    const res = await fetch(backndurl+"/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,6 +23,7 @@ const Login = () => {
       }),
     });
     const data = res.json();
+    console.log(res.status)
 
     if (res.status === 400 || !data) {
       window.alert("Invalid Credentials");

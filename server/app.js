@@ -1,6 +1,7 @@
 const dotenv= require("dotenv");
 dotenv.config({path:'./config.env'});
 const express= require('express');
+const cors =require('cors')
 const app= express();
 
 
@@ -10,11 +11,11 @@ require('./db/conn');
 
 //json -> formal form of data
 app.use(express.json());
-//middleware
-const middleware = (req, res, next)=>{
-    console.log("hello to middleware");
-    next();
-    }
+app.use(cors({
+    origin:process.env.CLIENT_URL
+}))
+
+
 
 app.use(require('./router/auth'));
 
@@ -24,14 +25,6 @@ app.use(require('./router/auth'));
 app.get('/',(req, res)=>{ 
 res.send(`hello world from the server app,js`);
 });
-app.get('/about', middleware ,(req,res)=>{
-    res.send(`About section`);
-    
-});
-app.get('/contact',(req,res)=>{
-    res.send(`contact section`);
-});
-
 
 
 app.listen(PORT,()=>{

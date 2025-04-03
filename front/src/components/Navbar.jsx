@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className="Navbar">
       <span className="nav-logo">Scholify</span>
       <div className={`nav-items ${isOpen && "open"}`}>
-        <a href="/home">Home</a>
+        <a href="/home">Homesn</a>
       
         <a href="/contact">Contact</a>
         <a href="/login">Login</a>
