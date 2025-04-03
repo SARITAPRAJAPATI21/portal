@@ -7,7 +7,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Scholarship from "./components/Scholarship";
 
-export const backndurl='http://localhost:3001'
+export const backndurl='https://scholarship-port.vercel.app'
 
 const App = () => {
   return (
